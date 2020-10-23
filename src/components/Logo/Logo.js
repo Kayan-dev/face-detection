@@ -16,7 +16,6 @@ export default function Logo() {
           <img style={{ paddingTop: "10px" }} alt="logo" src={brain} />{" "}
         </div>
       </Tilt>
-      ;
     </div>
   );
 }
