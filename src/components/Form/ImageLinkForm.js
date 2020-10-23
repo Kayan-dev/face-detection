@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ImageLinkForm.css";
 
-export default function ImageLinkForm() {
+export default function ImageLinkForm({ onSubmitChange, onInputChange }) {
   return (
     <div>
       <p className="f3">
@@ -11,9 +11,16 @@ export default function ImageLinkForm() {
       </p>
       <div className="center">
         <div className="form center pa4 b43 shadow-5">
-          <input className="f4 pa2 w-70 center" type="text"></input>
+          <input
+            onChange={onInputChange}
+            className="f4 pa2 w-70 center"
+            type="text"
+          ></input>
 
-          <button className="w-30 grow f4 link ph3 pv2 dib white bg-light-purple">
+          <button
+            onClick={onSubmitChange}
+            className="w-30 grow f4 link ph3 pv2 dib white bg-light-purple"
+          >
             Detect
           </button>
         </div>
