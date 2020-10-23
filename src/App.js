@@ -1,17 +1,18 @@
 import React from "react";
-
-import Navigation from "./components/Navigation";
+import Logo from "./components/Logo/Logo";
+import ImageLinkForm from "./components/Form/ImageLinkForm";
+import FaceRecognition from "./components/Recognition/FaceRecognition";
+import Navigation from "./components/Navigation/Navigation";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Navigation />
-        {/* <Logo/>
-   <ImageLinkForm />
-   <FaceRecognition /> */}
-      </header>
+      <Navigation />
+      <Logo />
+
+      <ImageLinkForm />
+      <FaceRecognition />
     </div>
   );
 }
