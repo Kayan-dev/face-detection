@@ -3,13 +3,13 @@ import "./SignIn.css";
 
 export default function SignIn({ onRouteChange }) {
   return (
-    <article className="br3 ba b--black-10 mv4 w-100 w-60-m w-40-l mw6 shadow-5 center">
+    <article className="sign br3 ba b--black-10 mv4 w-100 w-60-m w-40-l mw6 shadow-5 center">
       <main className="pa4 black-80">
         <form className="measure center">
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
             <legend className="f1 fw6 ph0 mh0">Sign In</legend>
             <div className="mt3">
-              <label className="db fw6 lh-copy f6" for="email-address">
+              <label className="db fw6 lh-copy f6" htmlFor="email-address">
                 Email
               </label>
               <input
@@ -20,7 +20,7 @@ export default function SignIn({ onRouteChange }) {
               />
             </div>
             <div className="mv3">
-              <label className="db fw6 lh-copy f6" for="password">
+              <label className="db fw6 lh-copy f6" htmlFor="password">
                 Password
               </label>
               <input
@@ -42,7 +42,7 @@ export default function SignIn({ onRouteChange }) {
           <div className="lh-copy mt3">
             <p
               onClick={() => onRouteChange("register")}
-              className="f6 link dim black db"
+              className="f6 link dim black db pointer"
             >
               Register
             </p>

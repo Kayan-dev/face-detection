@@ -4,7 +4,7 @@ import ImageLinkForm from "../components/Form/ImageLinkForm";
 import FaceRecognition from "../components/Recognition/FaceRecognition";
 import SignIn from "../components/SignIn/SignIn";
 import Rank from "../components/Rank/Rank";
-import Clarifai, { COLOR_MODEL } from "clarifai";
+import Clarifai from "clarifai";
 import Navigation from "../components/Navigation/Navigation";
 import Register from "../components/Register/Register";
 
@@ -17,6 +17,7 @@ export default function HomePage() {
   const [input, Set_Input] = useState("");
   const [box, Set_Box] = useState({});
   const [route, Set_Route] = useState("signin");
+  const [signedIn, Set_SignedIn] = useState(false);
 
   const calcFaceLocation = (data) => {
     console.log("What is data", data);
@@ -35,9 +36,7 @@ export default function HomePage() {
   };
   //console.log("FACE", calcFaceLocation());
   const displayBox = (boxer) => {
-    console.log("boxer", boxer);
     Set_Box(boxer);
-    console.log("Box", box);
   };
 
   const onInputChange = (event) => {
@@ -49,6 +48,8 @@ export default function HomePage() {
 
     app.models.predict(Clarifai.FACE_DETECT_MODEL, input).then(
       (response) => displayBox(calcFaceLocation(response))
+
+      //TODO below code creates an syntax/runtime error;
       // .catch((err) => {
       //   console.log(err);
       // })
@@ -57,11 +58,12 @@ export default function HomePage() {
 
   const onRouteChange = (event) => {
     Set_Route(event);
+    route === "signout" ? Set_SignedIn(false) : Set_SignedIn(true);
   };
 
   return (
     <div className="Homepage">
-      <Navigation onRouteChange={onRouteChange} />
+      <Navigation isSignedIn={signedIn} onRouteChange={onRouteChange} />
       {route === "home" ? (
         <div>
           <Logo />

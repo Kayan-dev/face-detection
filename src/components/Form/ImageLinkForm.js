@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ImageLinkForm.css";
 
 export default function ImageLinkForm({ onSubmitChange, onInputChange }) {
