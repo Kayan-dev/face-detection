@@ -1,9 +1,11 @@
 import React from "react";
 
-export default function FaceRecognition() {
+export default function FaceRecognition(props) {
   return (
     <div className="center">
-      <img alt="" src={"https://samples.clarifai.com/face-det.jpg"} />
+      <div className="absolute mt2">
+        <img alt="" src={props.imageUrl} width="500px" height="auto" />
+      </div>
     </div>
   );
 }
