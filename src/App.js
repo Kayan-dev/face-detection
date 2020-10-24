@@ -1,5 +1,4 @@
 import React from "react";
-import Navigation from "./components/Navigation/Navigation";
 import "./App.css";
 import Particles from "react-particles-js";
 import HomePage from "./Pages/HomePage";
@@ -19,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <Particles className="particles" params={ParticleOptions} />
-      <Navigation />
+
       <HomePage />
     </div>
   );

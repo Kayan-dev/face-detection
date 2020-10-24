@@ -5,6 +5,8 @@ import FaceRecognition from "../components/Recognition/FaceRecognition";
 import SignIn from "../components/SignIn/SignIn";
 import Rank from "../components/Rank/Rank";
 import Clarifai, { COLOR_MODEL } from "clarifai";
+import Navigation from "../components/Navigation/Navigation";
+import Register from "../components/Register/Register";
 
 const app = new Clarifai.App({
   apiKey: "b4723ee82b5049b6a08801926886ff93",
@@ -14,7 +16,7 @@ export default function HomePage() {
   const [image, Set_Image] = useState("");
   const [input, Set_Input] = useState("");
   const [box, Set_Box] = useState({});
-  const [route, Set_Route] = useState("signedout");
+  const [route, Set_Route] = useState("signin");
 
   const calcFaceLocation = (data) => {
     console.log("What is data", data);
@@ -53,11 +55,14 @@ export default function HomePage() {
     );
   };
 
+  const onRouteChange = (event) => {
+    Set_Route(event);
+  };
+
   return (
     <div className="Homepage">
-      {route === "signin" ? (
-        <SignIn />
-      ) : (
+      <Navigation onRouteChange={onRouteChange} />
+      {route === "home" ? (
         <div>
           <Logo />
           <Rank />
@@ -67,6 +72,10 @@ export default function HomePage() {
           />
           <FaceRecognition box={box} imageUrl={image} />
         </div>
+      ) : route === "signin" ? (
+        <SignIn onRouteChange={onRouteChange} />
+      ) : (
+        <Register onRouteChange={onRouteChange} />
       )}
     </div>
   );
