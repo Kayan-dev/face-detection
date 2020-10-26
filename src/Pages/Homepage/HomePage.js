@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Logo from "../components/Logo/Logo";
-import ImageLinkForm from "../components/Form/ImageLinkForm";
-import FaceRecognition from "../components/Recognition/FaceRecognition";
-import SignIn from "../components/SignIn/SignIn";
-import Rank from "../components/Rank/Rank";
+import Logo from "../../components/Logo/Logo";
+import ImageLinkForm from "../../components/Form/ImageLinkForm";
+import FaceRecognition from "../../components/Recognition/FaceRecognition";
+import SignIn from "../../components/SignIn/SignIn";
+import Rank from "../../components/Rank/Rank";
 import Clarifai from "clarifai";
-import Navigation from "../components/Navigation/Navigation";
-import Register from "../components/Register/Register";
+import Navigation from "../../components/Navigation/Navigation";
+import Register from "../../components/Register/Register";
 
 const app = new Clarifai.App({
   apiKey: "b4723ee82b5049b6a08801926886ff93",

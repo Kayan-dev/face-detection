@@ -9,7 +9,7 @@ export default function Register({ onRouteChange }) {
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
             <legend className="f1 fw6 ph0 mh0">Register</legend>
             <div className="mt3">
-              <label className="db fw6 lh-copy f6" for="name">
+              <label className="db fw6 lh-copy f6" htmlFor="name">
                 Name
               </label>
               <input
@@ -20,7 +20,7 @@ export default function Register({ onRouteChange }) {
               />
             </div>
             <div className="mt3">
-              <label className="db fw6 lh-copy f6" for="email-address">
+              <label className="db fw6 lh-copy f6" htmlFor="email-address">
                 Email
               </label>
               <input
@@ -31,7 +31,7 @@ export default function Register({ onRouteChange }) {
               />
             </div>
             <div className="mv3">
-              <label className="db fw6 lh-copy f6" for="password">
+              <label className="db fw6 lh-copy f6" htmlFor="password">
                 Password
               </label>
               <input
