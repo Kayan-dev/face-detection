@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../../components/Logo/Logo";
 import ImageLinkForm from "../../components/Form/ImageLinkForm";
 import FaceRecognition from "../../components/Recognition/FaceRecognition";
@@ -6,13 +6,20 @@ import SignIn from "../../components/SignIn/SignIn";
 import Rank from "../../components/Rank/Rank";
 import Clarifai from "clarifai";
 import Navigation from "../../components/Navigation/Navigation";
-import Register from "../../components/Register/Register";
+import LogIn from "../../components/LogIn/LogIn";
+import { useDispatch } from "react-redux";
 
 const app = new Clarifai.App({
   apiKey: "b4723ee82b5049b6a08801926886ff93",
 });
 
 export default function HomePage() {
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch();
+  // }, []);
+
   const [image, Set_Image] = useState("");
   const [input, Set_Input] = useState("");
   const [box, Set_Box] = useState({});
@@ -34,7 +41,7 @@ export default function HomePage() {
       bottomRow: height - faceLocation.bottom_row * height,
     };
   };
-  //console.log("FACE", calcFaceLocation());
+
   const displayBox = (boxer) => {
     Set_Box(boxer);
   };
@@ -56,6 +63,7 @@ export default function HomePage() {
     );
   };
 
+  // ROUTE action
   const onRouteChange = (event) => {
     Set_Route(event);
     route === "signout" ? Set_SignedIn(false) : Set_SignedIn(true);
@@ -75,9 +83,9 @@ export default function HomePage() {
           <FaceRecognition box={box} imageUrl={image} />
         </div>
       ) : route === "signin" ? (
-        <SignIn onRouteChange={onRouteChange} />
+        <LogIn onRouteChange={onRouteChange} />
       ) : (
-        <Register onRouteChange={onRouteChange} />
+        <SignIn onRouteChange={onRouteChange} />
       )}
     </div>
   );
