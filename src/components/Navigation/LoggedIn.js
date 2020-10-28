@@ -10,13 +10,14 @@ export default function LoggedIn() {
   const user = useSelector(selectUser);
   return (
     <>
-      <Nav.Item style={{ padding: ".5rem 1rem" }}>
+      <Nav.Item style={{ display: "flex", justifyContent: "flex-end" }}>
         {" "}
+        <Link to="/">Detector</Link>
         <Link to="/rank">Ranks</Link>
         <Link to="/about">About</Link>
         <Link to="/profile">Profile</Link>
+        <Button onClick={() => dispatch(logOut())}>Logout</Button>
       </Nav.Item>
-      <Button onClick={() => dispatch(logOut())}>Logout</Button>
     </>
   );
 }

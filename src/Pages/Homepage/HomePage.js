@@ -4,7 +4,6 @@ import ImageLinkForm from "../../components/Form/ImageLinkForm";
 import FaceRecognition from "../../components/Recognition/FaceRecognition";
 import Rank from "../../components/Rank/Rank";
 import Clarifai from "clarifai";
-import Navigation from "../../components/Navigation";
 import { useDispatch, useSelector } from "react-redux";
 import LogIn from "../LogIn/LogIn";
 import SignIn from "../SignIn/SignIn";
@@ -67,9 +66,11 @@ export default function HomePage() {
 
   return (
     <div className="Homepage">
-      <Navigation />
       {getUser.name === null ? (
-        <LogIn> </LogIn>
+        <div>
+          <Logo />
+          <LogIn> </LogIn>
+        </div>
       ) : (
         <div>
           <Logo />
