@@ -1,37 +1,54 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { login } from "../../store/user/actions";
+import "./SignIn.css";
+import { signUp } from "../../store/user/actions";
 import { selectToken } from "../../store/user/selectors";
-import "./LogIn.css";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, Link } from "react-router-dom";
 
-export default function LogIn({ onRouteChange }) {
+export default function SignIn({ onRouteChange }) {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  //const token = useSelector(selectToken);
+  const token = useSelector(selectToken);
   const history = useHistory();
 
-  // useEffect(() => {
-  //   if (token !== null) {
-  //     history.push("/");
-  //   }
-  // }, [token, history]);
+  useEffect(() => {
+    if (token !== null) {
+      history.push("/");
+    }
+  }, [token, history]);
 
   function submitForm(event) {
     event.preventDefault();
 
-    dispatch(login(email, password));
+    dispatch(signUp(name, email, password));
 
     setEmail("");
     setPassword("");
+    setName("");
   }
+
   return (
-    <article className="sign br3 ba b--black-10 mv4 w-100 w-60-m w-40-l mw6 shadow-5 center">
+    <article className="br3 ba b--black-10 mv4 w-100 w-60-m w-40-l mw6 shadow-5 center">
       <main className="pa4 black-80">
         <form className="measure center">
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-            <legend className="f1 fw6 ph0 mh0">Login</legend>
+            <legend className="f1 fw6 ph0 mh0">Sign up</legend>
+            <div className="mt3">
+              <label className="db fw6 lh-copy f6" htmlFor="name">
+                Name
+              </label>
+              <input
+                className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                type="name"
+                name="name"
+                id="name"
+                onChange={(event) => setName(event.target.value)}
+                value={name}
+                required
+              />
+            </div>
             <div className="mt3">
               <label className="db fw6 lh-copy f6" htmlFor="email-address">
                 Email
@@ -40,9 +57,10 @@ export default function LogIn({ onRouteChange }) {
                 className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                 type="email"
                 name="email-address"
+                id="email-address"
                 onChange={(event) => setEmail(event.target.value)}
                 value={email}
-                id="email-address"
+                required
               />
             </div>
             <div className="mv3">
@@ -53,9 +71,10 @@ export default function LogIn({ onRouteChange }) {
                 className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                 type="password"
                 name="password"
+                id="password"
                 onChange={(event) => setPassword(event.target.value)}
                 value={password}
-                id="password"
+                required
               />
             </div>
           </fieldset>
@@ -64,16 +83,8 @@ export default function LogIn({ onRouteChange }) {
               onClick={() => submitForm}
               className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
               type="submit"
-              value="login"
+              value="Sign up"
             />
-          </div>
-          <div className="lh-copy mt3">
-            <p
-              onClick={() => submitForm}
-              className="f6 link dim black db pointer"
-            >
-              Sign up
-            </p>
           </div>
         </form>
       </main>

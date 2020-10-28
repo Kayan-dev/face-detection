@@ -3,12 +3,17 @@ body {
   font-family: "Courier New", Courier, monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(89deg, #253b58 0%, #57034c 100%);
+  background: linear-gradient(89deg, #b2f517 0%, #016796 100%);
 }
 /* 04c8de  #09b4ca */
 /* #5c094b 0%, #016796 */
 /* #5c094b 0%, #016796 */
 /* #dacc52 0%, #b900a1 */
+
+/* 
+#253b58 0%, #57034c 
+*/
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
