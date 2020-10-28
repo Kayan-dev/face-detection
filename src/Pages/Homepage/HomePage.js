@@ -5,9 +5,10 @@ import FaceRecognition from "../../components/Recognition/FaceRecognition";
 import Rank from "../../components/Rank/Rank";
 import Clarifai from "clarifai";
 import Navigation from "../../components/Navigation";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import LogIn from "../LogIn/LogIn";
 import SignIn from "../SignIn/SignIn";
+import { selectUser } from "../../store/user/selectors";
 
 const app = new Clarifai.App({
   apiKey: "b4723ee82b5049b6a08801926886ff93",
@@ -52,7 +53,6 @@ export default function HomePage() {
 
   const onSubmitChange = (event) => {
     Set_Image(input);
-
     app.models.predict(Clarifai.FACE_DETECT_MODEL, input).then(
       (response) => displayBox(calcFaceLocation(response))
 
@@ -63,16 +63,14 @@ export default function HomePage() {
     );
   };
 
-  // ROUTE action
-  const onRouteChange = (event) => {
-    Set_Route(event);
-    route === "signout" ? Set_SignedIn(false) : Set_SignedIn(true);
-  };
+  const getUser = useSelector(selectUser);
 
   return (
     <div className="Homepage">
-      <Navigation isSignedIn={signedIn} onRouteChange={onRouteChange} />
-      {route === "home" ? (
+      <Navigation />
+      {getUser.name === null ? (
+        <LogIn> </LogIn>
+      ) : (
         <div>
           <Logo />
           <Rank />
@@ -82,10 +80,6 @@ export default function HomePage() {
           />
           <FaceRecognition box={box} imageUrl={image} />
         </div>
-      ) : route === "signin" ? (
-        <LogIn onRouteChange={onRouteChange} />
-      ) : (
-        <SignIn onRouteChange={onRouteChange} />
       )}
     </div>
   );

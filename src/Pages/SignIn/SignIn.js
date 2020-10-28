@@ -5,7 +5,7 @@ import { selectToken } from "../../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 
-export default function SignIn({ onRouteChange }) {
+export default function SignIn() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -80,7 +80,7 @@ export default function SignIn({ onRouteChange }) {
           </fieldset>
           <div className="">
             <input
-              onClick={() => submitForm}
+              onClick={submitForm}
               className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
               type="submit"
               value="Sign up"

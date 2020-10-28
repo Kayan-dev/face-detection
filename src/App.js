@@ -12,6 +12,9 @@ import about from "./Pages/About/About";
 import { selectAppLoading } from "./store/appState/selectors";
 import HomePage from "./Pages/Homepage/HomePage";
 import Listing from "./Pages/Listing/Listing";
+import SignIn from "./Pages/SignIn/SignIn";
+import LogIn from "./Pages/LogIn/LogIn";
+
 const ParticleOptions = {
   particles: {
     number: {
@@ -38,10 +41,12 @@ function App() {
       {isLoading ? <Loading /> : null}
       <Switch>
         <Route exact path="/" component={HomePage} />
-        {/* <Route exact path="/users" component={Listing} />
-        <Route path="/users/:id?" component={detail} />
+        {/* <Route exact path="/rank" component={Listing} />
+        <Route path="/rank/:id?" component={detail} />
         <Route path="/about" component={about} />
         <Route path="/profile" component={profile} /> */}
+        <Route path="/signup" component={SignIn} />
+        <Route path="/login" component={LogIn} />
       </Switch>
     </div>
   );

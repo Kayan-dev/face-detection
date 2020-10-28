@@ -12,10 +12,10 @@ export default function LoggedIn() {
     <>
       <Nav.Item style={{ padding: ".5rem 1rem" }}>
         {" "}
-        <Link to="/mypage">My Page</Link>
+        <Link to="/rank">Ranks</Link>
+        <Link to="/about">About</Link>
+        <Link to="/profile">Profile</Link>
       </Nav.Item>
-
-      <Nav.Item style={{ padding: ".5rem 1rem" }}>{user.name}</Nav.Item>
       <Button onClick={() => dispatch(logOut())}>Logout</Button>
     </>
   );
