@@ -6,6 +6,8 @@ import {
   setMessage,
   FETCHED_USERS,
   LOADING_PAGES,
+  ADDING_IMAGE,
+  showMessageWithTimeout,
 } from "../appState/actions";
 import thunk from "redux-thunk";
 
@@ -21,6 +23,28 @@ export function usersFetched(listofUsers) {
     payload: listofUsers,
   };
 }
+
+export const addImage = (image) => {
+  return async (dispatch, getState) => {
+    dispatch(appLoading());
+    try {
+      const response = await axios.post(`${apiUrl}/image`, {
+        image,
+      });
+      dispatch(appDoneLoading());
+      dispatch(showMessageWithTimeout("success", true, response.data, 3000));
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data.message);
+        dispatch(setMessage("danger", true, error.response.data.message));
+      } else {
+        console.log(error.message);
+        dispatch(setMessage("danger", true, error.message));
+      }
+      dispatch(appDoneLoading());
+    }
+  };
+};
 
 export async function allUsers(dispatch, getState) {
   try {

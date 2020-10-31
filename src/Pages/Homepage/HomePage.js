@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import LogIn from "../LogIn/LogIn";
 import SignIn from "../SignIn/SignIn";
 import { selectUser } from "../../store/user/selectors";
+import { addImage } from "../../store/image/actions";
 
 const app = new Clarifai.App({
   apiKey: "b4723ee82b5049b6a08801926886ff93",
@@ -53,8 +54,8 @@ export default function HomePage() {
   const onSubmitChange = (event) => {
     Set_Image(input);
     app.models.predict(Clarifai.FACE_DETECT_MODEL, input).then(
-      (response) => displayBox(calcFaceLocation(response))
-
+      (response) => displayBox(calcFaceLocation(response)),
+      dispatch(addImage(image))
       //TODO below code creates an syntax/runtime error;
       // .catch((err) => {
       //   console.log(err);
