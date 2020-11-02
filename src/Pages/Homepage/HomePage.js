@@ -61,6 +61,7 @@ export default function HomePage() {
         (response) => displayBox(calcFaceLocation(response)),
         dispatch(addImage(input))
       );
+    Set_Input("");
   };
 
   return (

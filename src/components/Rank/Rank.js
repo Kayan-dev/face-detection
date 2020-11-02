@@ -7,8 +7,8 @@ export default function Rank() {
 
   return (
     <div>
-      <div className="white f3">{`${user.name}, your current rank is...`}</div>
-      <div className="white f1">{"#5"}</div>
+      <div className="white f3">{`Welcome ${user.name}`}</div>
+      <br></br>
     </div>
   );
 }

@@ -14,25 +14,15 @@ import Listing from "./Pages/Listing/Listing";
 import SignIn from "./Pages/SignIn/SignIn";
 import LogIn from "./Pages/LogIn/LogIn";
 import Navigation from "./components/Navigation";
-
-const ParticleOptions = {
-  particles: {
-    number: {
-      value: 30,
-      density: {
-        enable: true,
-        value_area: 800,
-      },
-    },
-  },
-};
+import { ParticleOptions } from "./components/Particles/Particle";
+import { getUserWithStoredToken } from "./store/user/actions";
 
 function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAppLoading);
 
   useEffect(() => {
-    //dispatch(getUserWithStoredToken());
+    // dispatch(getUserWithStoredToken());
   }, [dispatch]);
 
   return (

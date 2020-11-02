@@ -13,13 +13,13 @@ export default function ImageLinkForm({ onSubmitChange, onInputChange }) {
         <div className="form center pa4 b43 shadow-5">
           <input
             onChange={onInputChange}
-            className="f4 pa2 w-70 center"
+            className="input-text f4 pa2 w-70 center"
             type="text"
           ></input>
 
           <button
             onClick={onSubmitChange}
-            className="w-30 grow f4 link ph3 pv2 dib white bg-light-purple"
+            className="input-text w-30 grow f4 link ph3 pv2 dib white bg-dark-blue"
           >
             Detect
           </button>

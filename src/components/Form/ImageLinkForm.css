@@ -52,3 +52,7 @@
   background-size: 80px 140px;
   background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
 }
+
+.input-text {
+  color: rgb(15, 15, 17) !important;
+}
