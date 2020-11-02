@@ -6,26 +6,29 @@ import Rank from "../../components/Rank/Rank";
 import Clarifai from "clarifai";
 import { useDispatch, useSelector } from "react-redux";
 import LogIn from "../LogIn/LogIn";
-import SignIn from "../SignIn/SignIn";
-import { selectUser } from "../../store/user/selectors";
+import { selectToken, selectUser } from "../../store/user/selectors";
 import { addImage } from "../../store/image/actions";
+import { useHistory } from "react-router-dom";
 
 const app = new Clarifai.App({
   apiKey: "b4723ee82b5049b6a08801926886ff93",
 });
 
 export default function HomePage() {
+  const getUser = useSelector(selectUser);
   const dispatch = useDispatch();
+  const token = useSelector(selectToken);
+  const history = useHistory();
 
-  // useEffect(() => {
-  //   dispatch();
-  // }, []);
+  useEffect(() => {
+    if (token !== null) {
+      history.push("/");
+    }
+  }, [token, history]);
 
   const [image, Set_Image] = useState("");
   const [input, Set_Input] = useState("");
   const [box, Set_Box] = useState({});
-  const [route, Set_Route] = useState("signin");
-  const [signedIn, Set_SignedIn] = useState(false);
 
   const calcFaceLocation = (data) => {
     console.log("What is data", data);
@@ -50,20 +53,15 @@ export default function HomePage() {
   const onInputChange = (event) => {
     Set_Input(event.target.value);
   };
-
   const onSubmitChange = (event) => {
     Set_Image(input);
-    app.models.predict(Clarifai.FACE_DETECT_MODEL, input).then(
-      (response) => displayBox(calcFaceLocation(response)),
-      dispatch(addImage(image))
-      //TODO below code creates an syntax/runtime error;
-      // .catch((err) => {
-      //   console.log(err);
-      // })
-    );
+    app.models
+      .predict(Clarifai.FACE_DETECT_MODEL, input)
+      .then(
+        (response) => displayBox(calcFaceLocation(response)),
+        dispatch(addImage(input))
+      );
   };
-
-  const getUser = useSelector(selectUser);
 
   return (
     <div className="Homepage">

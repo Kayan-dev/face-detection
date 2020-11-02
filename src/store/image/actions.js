@@ -10,7 +10,6 @@ import {
   showMessageWithTimeout,
   FETCHED_IMAGES,
 } from "../appState/actions";
-import thunk from "redux-thunk";
 
 export function startLoading() {
   return {
@@ -36,6 +35,7 @@ export const addImage = (image) => {
     console.log("add 1");
     dispatch(appLoading());
     console.log("add 2");
+    console.log("what is image:", image);
     try {
       const response = await axios.post(`${apiUrl}/image`, {
         image,

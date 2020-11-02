@@ -1,7 +1,6 @@
 import {
   ADDING_IMAGE,
   FETCHED_IMAGES,
-  FETCHED_USERS,
   LOADING_PAGES,
 } from "../appState/actions";
 

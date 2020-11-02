@@ -5,13 +5,6 @@ import { useDispatch } from "react-redux";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.css";
 
 export default function ImageCarousel(props) {
-  const dispatch = useDispatch();
-
-  //   const onDelete = (id) => {
-  //     console.log("deleting story!", id);
-  //     dispatch(deleteStory(id));
-  //   };
-
   return (
     <Carousel>
       {props.image.map((image) => {
