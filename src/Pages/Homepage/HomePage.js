@@ -67,12 +67,12 @@ export default function HomePage() {
     <div className="Homepage">
       {getUser.name === null ? (
         <div>
-          <Logo />
+          {/* <Logo /> */}
           <LogIn> </LogIn>
         </div>
       ) : (
         <div>
-          <Logo />
+          {/* <Logo /> */}
           <Rank />
           <ImageLinkForm
             onInputChange={onInputChange}

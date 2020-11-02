@@ -38,6 +38,7 @@ function App() {
   return (
     <div className="App">
       <Navigation></Navigation>
+
       <Particles className="particles" params={ParticleOptions} />
       {isLoading ? <Loading /> : null}
       <Switch>

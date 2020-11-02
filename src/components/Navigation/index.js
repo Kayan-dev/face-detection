@@ -15,12 +15,11 @@ export default function Navigation() {
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
   return (
-    <Navbar bg="light" expand="lg">
-      {/* <Navbar.Brand as={NavLink} to="/"></Navbar.Brand> */}
+    <Navbar bg="transparent" expand="lg">
+      <Logo></Logo>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav style={{ width: "100%" }} fill>
-          {/* <NavbarItem path="/" src={Logo} /> */}
+        <Nav className="ma-2" style={{ width: "100%" }} fill>
           {loginLogoutControls}
         </Nav>
       </Navbar.Collapse>
