@@ -10,10 +10,13 @@ import SignIn from "../SignIn/SignIn";
 import { selectUser } from "../../store/user/selectors";
 import { Link, useParams } from "react-router-dom";
 import Loading from "../../components/Loading";
-import { selectAllUsers } from "../../store/image/selectors";
+import { selectAllImages, selectAllUsers } from "../../store/image/selectors";
 import { allUsers } from "../../store/image/actions";
+import { Container } from "react-bootstrap";
+import StoryCarousel from "../../components/ImageCarousel/Carousel";
 
 export default function Ranks() {
+  const { image } = useSelector(selectAllImages);
   const dispatch = useDispatch();
   //console.log("Hello");
   useEffect(() => {
@@ -28,19 +31,27 @@ export default function Ranks() {
   if (!ranks) return <div>{Loading}</div>;
 
   return (
-    <div>
-      {ranks.map((user, index) => {
-        return (
-          <div key={user.id}>
-            <h4>{user.name}</h4>
-            <br></br>
+    // <div>
+    //   {ranks.map((user, index) => {
+    //     return (
+    //       <div key={user.id}>
+    //         <h4>{user.name}</h4>
+    //         <br></br>
 
-            <Link to={`rank/${user.userId}`}>
-              <button type="submit">Visit profile</button>
-            </Link>
-          </div>
-        );
-      })}
+    //         <Link to={`rank/${user.userId}`}>
+    //           <button type="submit">Visit profile</button>
+    //         </Link>
+    //       </div>
+    //     );
+    //   })}
+    // </div>
+    <div>
+      <h1>Test</h1>
+
+      <Container>
+        <h1>TESTING</h1>
+        <StoryCarousel image={Image} />
+      </Container>
     </div>
   );
 }

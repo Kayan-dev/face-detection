@@ -7,6 +7,7 @@ export const SET_MESSAGE = "SET_MESSAGE";
 export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
 export const FETCHED_USERS = "FETCHED_USERS";
 export const ADDING_IMAGE = "ADDING_IMAGE";
+export const FETCHED_IMAGES = "FETCHED_IMAGES";
 
 export const appLoading = () => ({ type: APP_LOADING });
 export const appDoneLoading = () => ({ type: APP_DONE_LOADING });

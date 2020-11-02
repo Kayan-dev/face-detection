@@ -1,5 +1,6 @@
 import {
   ADDING_IMAGE,
+  FETCHED_IMAGES,
   FETCHED_USERS,
   LOADING_PAGES,
 } from "../appState/actions";
@@ -7,7 +8,7 @@ import {
 const initialState = {
   loading: true,
   list: [],
-  image: null,
+  image: [],
 };
 
 export function allUserReducer(state = initialState, action) {
@@ -29,6 +30,12 @@ export function allUserReducer(state = initialState, action) {
         ...state,
         loading: false,
         image: action.payload,
+      };
+    }
+    case FETCHED_IMAGES: {
+      return {
+        ...state,
+        image: [...state.image, action.payload],
       };
     }
 

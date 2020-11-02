@@ -8,6 +8,7 @@ import {
   LOADING_PAGES,
   ADDING_IMAGE,
   showMessageWithTimeout,
+  FETCHED_IMAGES,
 } from "../appState/actions";
 import thunk from "redux-thunk";
 
@@ -24,6 +25,12 @@ export function usersFetched(listofUsers) {
   };
 }
 
+export function fetchImages(images) {
+  return {
+    type: FETCHED_IMAGES,
+    payload: images,
+  };
+}
 export const addImage = (image) => {
   return async (dispatch, getState) => {
     dispatch(appLoading());
@@ -45,6 +52,64 @@ export const addImage = (image) => {
     }
   };
 };
+
+export const getAllImages = (image) => {
+  return async (dispatch, getState) => {
+    try {
+      console.log("First");
+      dispatch(appLoading);
+      console.log("Second");
+
+      const response = await Promise([axios.get(`${apiUrl}/image`)]);
+      console.log("all Images:", response.data);
+      const allimages = response.data;
+      dispatch(appDoneLoading());
+      dispatch(
+        fetchImages({
+          allimages,
+          // user: userRes,
+        })
+      );
+    } catch (error) {
+      if (error) {
+        console.log("WRONG!");
+      } else {
+        console.log("GOOD?");
+      }
+    }
+  };
+};
+
+// export async function detailPages(dispatch, getState) {
+//   try {
+//     console.log("FIrst");
+//     dispatch(appLoading());
+
+//     console.log("HeSecondllo");
+
+//     const [storyRes, userRes] = await Promise.all([
+//       axios.get(`${apiUrl}/story`),
+//       //   axios.get(`${apiUrl}/home/${id}`),
+//     ]);
+
+//     console.log("All STORIES", storyRes.data);
+//     const lollie = storyRes.data;
+//     dispatch(appDoneLoading());
+//     dispatch(
+//       fetchStories({
+//         lollie,
+//         // user: userRes,
+//       })
+//     );
+//     // console.log("USER PAGE", userRes);
+//   } catch (error) {
+//     if (error) {
+//       console.log("WRONG!");
+//     } else {
+//       console.log("GOOD?");
+//     }
+//   }
+// }
 
 export async function allUsers(dispatch, getState) {
   try {
