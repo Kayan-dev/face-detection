@@ -13,7 +13,7 @@ export default function LoggedIn() {
       <Nav.Item style={{ display: "flex", justifyContent: "flex-end" }}>
         {" "}
         <Link to="/">Detector</Link>
-        <Link to="/rank">Ranks</Link>
+        <Link to="/list">Images</Link>
         <Link to="/about">About</Link>
         <Link to="/profile">Profile</Link>
         <Button onClick={() => dispatch(logOut())}>Logout</Button>

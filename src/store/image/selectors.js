@@ -1,7 +1,7 @@
 export function selectAllUsers(reduxState) {
-  return reduxState.AllUserReducer.list;
+  return reduxState.AllUserReducer.list.allUser;
 }
 
 export function selectAllImages(reduxState) {
-  return reduxState.AllUserReducer.image;
+  return reduxState.Images.image.allImages;
 }

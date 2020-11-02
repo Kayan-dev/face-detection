@@ -42,7 +42,7 @@ function App() {
       {isLoading ? <Loading /> : null}
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/rank" component={Listing} />
+        <Route exact path="/list" component={Listing} />
         {/* 
         <Route path="/rank/:id?" component={RankDetail} />
         <Route path="/about" component={about} />

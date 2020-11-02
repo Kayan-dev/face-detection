@@ -1,34 +1,25 @@
-import React, { useEffect, useState } from "react";
-import Logo from "../../components/Logo/Logo";
-import ImageLinkForm from "../../components/Form/ImageLinkForm";
-import FaceRecognition from "../../components/Recognition/FaceRecognition";
-import Rank from "../../components/Rank/Rank";
-import Clarifai from "clarifai";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import LogIn from "../LogIn/LogIn";
-import SignIn from "../SignIn/SignIn";
-import { selectUser } from "../../store/user/selectors";
-import { Link, useParams } from "react-router-dom";
 import Loading from "../../components/Loading";
-import { selectAllImages, selectAllUsers } from "../../store/image/selectors";
-import { allUsers } from "../../store/image/actions";
+import { selectAllImages } from "../../store/image/selectors";
 import { Container } from "react-bootstrap";
 import StoryCarousel from "../../components/ImageCarousel/Carousel";
+import { getAllImages } from "../../store/image/actions";
 
 export default function Ranks() {
-  const { image } = useSelector(selectAllImages);
+  const image = useSelector(selectAllImages);
   const dispatch = useDispatch();
-  //console.log("Hello");
+
   useEffect(() => {
-    // console.log("useeffect");
-    dispatch(allUsers);
+    dispatch(getAllImages);
+    console.log("dispatched");
   }, []);
 
-  const ranks = useSelector(selectAllUsers);
-  console.log("rank:", ranks);
+  // const all_images = useSelector(selectAllUsers);
 
   //Buffer render time
-  if (!ranks) return <div>{Loading}</div>;
+  if (!image) return <div>{Loading}</div>;
+  console.log("image:", image);
 
   return (
     // <div>
@@ -50,7 +41,7 @@ export default function Ranks() {
 
       <Container>
         <h1>TESTING</h1>
-        <StoryCarousel image={Image} />
+        {/* <StoryCarousel image={image} /> */}
       </Container>
     </div>
   );

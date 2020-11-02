@@ -33,7 +33,9 @@ export function fetchImages(images) {
 }
 export const addImage = (image) => {
   return async (dispatch, getState) => {
+    console.log("add 1");
     dispatch(appLoading());
+    console.log("add 2");
     try {
       const response = await axios.post(`${apiUrl}/image`, {
         image,
@@ -53,32 +55,29 @@ export const addImage = (image) => {
   };
 };
 
-export const getAllImages = (image) => {
-  return async (dispatch, getState) => {
-    try {
-      console.log("First");
-      dispatch(appLoading);
-      console.log("Second");
-
-      const response = await Promise([axios.get(`${apiUrl}/image`)]);
-      console.log("all Images:", response.data);
-      const allimages = response.data;
-      dispatch(appDoneLoading());
-      dispatch(
-        fetchImages({
-          allimages,
-          // user: userRes,
-        })
-      );
-    } catch (error) {
-      if (error) {
-        console.log("WRONG!");
-      } else {
-        console.log("GOOD?");
-      }
+export async function getAllImages(dispatch, getState) {
+  try {
+    console.log("First");
+    dispatch(appLoading);
+    console.log("Second");
+    const response = await axios.get(`${apiUrl}/image`);
+    console.log("all Images:", response.data);
+    const allImages = response.data;
+    dispatch(appDoneLoading());
+    dispatch(
+      fetchImages({
+        allImages,
+        // user: userRes,
+      })
+    );
+  } catch (error) {
+    if (error) {
+      console.log("WRONG!");
+    } else {
+      console.log("GOOD?");
     }
-  };
-};
+  }
+}
 
 // export async function detailPages(dispatch, getState) {
 //   try {
@@ -113,14 +112,14 @@ export const getAllImages = (image) => {
 
 export async function allUsers(dispatch, getState) {
   try {
-    //  console.log("And this?");
+    console.log("And this?");
     dispatch(appLoading());
 
-    //  console.log("Hello");
+    console.log("Hello");
 
-    const [userRes] = await Promise.all([axios.get(`${apiUrl}/rank`)]);
+    const [userRes] = await Promise.all([axios.get(`${apiUrl}/user`)]);
 
-    //console.log("All PAGES", pageRes.data);
+    console.log("All PAGES", userRes.data);
     const allUser = userRes.data;
     dispatch(appDoneLoading());
     dispatch(

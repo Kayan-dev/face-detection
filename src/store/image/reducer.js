@@ -7,11 +7,10 @@ import {
 
 const initialState = {
   loading: true,
-  list: [],
   image: [],
 };
 
-export function allUserReducer(state = initialState, action) {
+export default function Images(state = initialState, action) {
   switch (action.type) {
     case LOADING_PAGES: {
       return {
@@ -19,23 +18,18 @@ export function allUserReducer(state = initialState, action) {
         loading: false,
       };
     }
-    case FETCHED_USERS: {
-      return {
-        loading: false,
-        list: action.payload,
-      };
-    }
     case ADDING_IMAGE: {
       return {
         ...state,
         loading: false,
-        image: action.payload,
+        image: [...state.image, action.payload],
       };
     }
     case FETCHED_IMAGES: {
       return {
         ...state,
-        image: [...state.image, action.payload],
+        loading: false,
+        image: action.payload,
       };
     }
 
