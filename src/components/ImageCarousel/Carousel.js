@@ -2,8 +2,9 @@ import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
 import { useDispatch } from "react-redux";
+import "../../../node_modules/bootstrap/dist/css/bootstrap.css";
 
-export default function StoryCarousel(props) {
+export default function ImageCarousel(props) {
   const dispatch = useDispatch();
 
   //   const onDelete = (id) => {
@@ -12,18 +13,15 @@ export default function StoryCarousel(props) {
   //   };
 
   return (
-    <Carousel className="mt-5">
+    <Carousel>
       {props.image.map((image) => {
         return (
           <Carousel.Item key={image.id}>
-            {image.imageUrl ? (
-              <img
-                className="d-block w-100"
-                src={image.imageUrl}
-                alt={"added face from user"}
-              />
-            ) : null}
-            <Carousel.Caption className="p-5"></Carousel.Caption>
+            <img
+              className="d-block w-100"
+              src={image.ImageUrl}
+              alt={image.ImageUrl}
+            />
           </Carousel.Item>
         );
       })}
