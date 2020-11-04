@@ -13,7 +13,7 @@ export default function Ranks() {
   useEffect(() => {
     dispatch(getAllImages);
     console.log("dispatched");
-  }, []);
+  }, [dispatch]);
 
   //Buffer render time
   if (!image) return <div>{Loading}</div>;

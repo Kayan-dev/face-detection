@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Logo from "../../components/Logo/Logo";
 import ImageLinkForm from "../../components/Form/ImageLinkForm";
 import FaceRecognition from "../../components/Recognition/FaceRecognition";
 import Rank from "../../components/Rank/Rank";
@@ -30,10 +29,20 @@ export default function HomePage() {
   const [input, Set_Input] = useState("");
   const [box, Set_Box] = useState({});
 
+  // TODO
+  // const captureLocation = (data) => {
+  //   console.log("What is data", data);
+  // };
+
   const calcFaceLocation = (data) => {
+    // const allLocations = data.map((face, i) => {
+    //   return face[i].region_info.bounding_box;
+    // });
+    // console.log("faces:", allLocations);
     console.log("What is data", data);
     const faceLocation =
       data.outputs[0].data.regions[0].region_info.bounding_box;
+
     const boxImage = document.getElementById("inputImage");
     const width = Number(boxImage.width);
     const height = Number(boxImage.height);
@@ -53,6 +62,7 @@ export default function HomePage() {
   const onInputChange = (event) => {
     Set_Input(event.target.value);
   };
+
   const onSubmitChange = (event) => {
     Set_Image(input);
     app.models

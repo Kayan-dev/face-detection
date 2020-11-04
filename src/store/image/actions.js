@@ -6,7 +6,6 @@ import {
   setMessage,
   FETCHED_USERS,
   LOADING_PAGES,
-  ADDING_IMAGE,
   showMessageWithTimeout,
   FETCHED_IMAGES,
 } from "../appState/actions";
@@ -78,37 +77,6 @@ export async function getAllImages(dispatch, getState) {
     }
   }
 }
-
-// export async function detailPages(dispatch, getState) {
-//   try {
-//     console.log("FIrst");
-//     dispatch(appLoading());
-
-//     console.log("HeSecondllo");
-
-//     const [storyRes, userRes] = await Promise.all([
-//       axios.get(`${apiUrl}/story`),
-//       //   axios.get(`${apiUrl}/home/${id}`),
-//     ]);
-
-//     console.log("All STORIES", storyRes.data);
-//     const lollie = storyRes.data;
-//     dispatch(appDoneLoading());
-//     dispatch(
-//       fetchStories({
-//         lollie,
-//         // user: userRes,
-//       })
-//     );
-//     // console.log("USER PAGE", userRes);
-//   } catch (error) {
-//     if (error) {
-//       console.log("WRONG!");
-//     } else {
-//       console.log("GOOD?");
-//     }
-//   }
-// }
 
 export async function allUsers(dispatch, getState) {
   try {

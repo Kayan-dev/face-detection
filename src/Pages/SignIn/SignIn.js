@@ -3,7 +3,7 @@ import "./SignIn.css";
 import { signUp } from "../../store/user/actions";
 import { selectToken } from "../../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function SignIn() {
   const [name, setName] = useState("");

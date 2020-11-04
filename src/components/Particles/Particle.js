@@ -1,5 +1,5 @@
 import "./Particles.css";
-import face from "./male_face.svg";
+// import face from "./male_face.svg";
 
 export const ParticleOptions = {
   fps_limit: 28,
