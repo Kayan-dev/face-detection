@@ -31,10 +31,7 @@ export function fetchImages(images) {
 }
 export const addImage = (image) => {
   return async (dispatch, getState) => {
-    console.log("add 1");
     dispatch(appLoading());
-    console.log("add 2");
-    console.log("what is image:", image);
     try {
       const response = await axios.post(`${apiUrl}/image`, {
         image,
@@ -56,52 +53,36 @@ export const addImage = (image) => {
 
 export async function getAllImages(dispatch, getState) {
   try {
-    console.log("First");
     dispatch(appLoading);
-    console.log("Second");
     const response = await axios.get(`${apiUrl}/image`);
-    console.log("all Images:", response.data);
     const allImages = response.data;
     dispatch(appDoneLoading());
     dispatch(
       fetchImages({
         allImages,
-        // user: userRes,
       })
     );
   } catch (error) {
     if (error) {
-      console.log("WRONG!");
     } else {
-      console.log("GOOD?");
     }
   }
 }
 
 export async function allUsers(dispatch, getState) {
   try {
-    console.log("And this?");
     dispatch(appLoading());
-
-    console.log("Hello");
-
     const [userRes] = await Promise.all([axios.get(`${apiUrl}/user`)]);
-
-    console.log("All PAGES", userRes.data);
     const allUser = userRes.data;
     dispatch(appDoneLoading());
     dispatch(
       usersFetched({
         allUser,
-        // user: userRes,
       })
     );
-    // console.log("USER PAGE", userRes);
   } catch (error) {
     if (error) {
-      //    console.log("WRONG!");
     } else {
-      //     console.log("GOOD?");
     }
   }
 }

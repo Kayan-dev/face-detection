@@ -31,7 +31,6 @@ export default function Images(state = initialState, action) {
         image: action.payload,
       };
     }
-
     default:
       return state;
   }

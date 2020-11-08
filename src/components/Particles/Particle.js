@@ -21,7 +21,7 @@ export const ParticleOptions = {
     },
     modes: {
       grab: {
-        distance: 400,
+        distance: 200,
         line_linked: {
           opacity: 1,
         },
@@ -44,6 +44,8 @@ export const ParticleOptions = {
       },
     },
   },
+
+  // Below is another option for particle visualization:
 
   // particles: {
   //   collisions: {

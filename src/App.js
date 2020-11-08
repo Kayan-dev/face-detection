@@ -4,10 +4,6 @@ import Particles from "react-particles-js";
 import Loading from "./components/Loading";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-// import RankDetail from "./Pages/Detail/RankDetail";
-// import ProfileDetail from "./Pages/Detail/ProfileDetail";
-// import profile from "./Pages/Profile/profile";
-// import about from "./Pages/About/About";
 import { selectAppLoading } from "./store/appState/selectors";
 import HomePage from "./Pages/Homepage/HomePage";
 import Listing from "./Pages/Listing/Listing";
@@ -16,6 +12,8 @@ import LogIn from "./Pages/LogIn/LogIn";
 import Navigation from "./components/Navigation";
 import { ParticleOptions } from "./components/Particles/Particle";
 // import { getUserWithStoredToken } from "./store/user/actions";
+// import profile from "./Pages/Profile/profile";
+// import about from "./Pages/About/About";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,10 +33,9 @@ function App() {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/list" component={Listing} />
         {/* 
-        <Route path="/rank/:id?" component={RankDetail} />
         <Route path="/about" component={about} />
         <Route path="/profile" component={profile} />
-        <Route path="/profile/:id?" component={ProfileDetail} /> */}
+         */}
         <Route path="/signup" component={SignIn} />
         <Route path="/login" component={LogIn} />
       </Switch>

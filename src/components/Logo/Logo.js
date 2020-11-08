@@ -8,9 +8,6 @@ export default function Logo() {
   return (
     <Link to="/">
       <div className="ma4 mt0">
-        {/* <a href="/">
-        <div className="logo"></div>
-      </a> */}
         <Tilt
           className="Tilt br2 shadow-2"
           options={{ max: 55 }}
