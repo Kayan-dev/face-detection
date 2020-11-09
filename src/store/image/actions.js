@@ -33,7 +33,7 @@ export const addImage = (image, id) => {
   return async (dispatch, getState) => {
     dispatch(appLoading());
     try {
-      const response = await axios.post(`${apiUrl}/image`, {
+      const response = await axios.post(`${apiUrl}/image/${id}`, {
         image,
         id,
       });

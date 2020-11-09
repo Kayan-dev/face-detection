@@ -85,7 +85,9 @@ export default function HomePage() {
           <Rank />
           <ImageLinkForm
             onInputChange={onInputChange}
-            onSubmitChange={onSubmitChange(getUser.id)}
+            onSubmitChange={() => {
+              onSubmitChange(getUser.id);
+            }}
           />
           <FaceRecognition box={box} imageUrl={image} />
         </div>
