@@ -63,13 +63,13 @@ export default function HomePage() {
     Set_Input(event.target.value);
   };
 
-  const onSubmitChange = (event) => {
+  const onSubmitChange = (id) => {
     Set_Image(input);
     app.models
       .predict(Clarifai.FACE_DETECT_MODEL, input)
       .then(
         (response) => displayBox(calcFaceLocation(response)),
-        dispatch(addImage(input))
+        dispatch(addImage(input, id))
       );
     Set_Input("");
   };
@@ -85,7 +85,7 @@ export default function HomePage() {
           <Rank />
           <ImageLinkForm
             onInputChange={onInputChange}
-            onSubmitChange={onSubmitChange}
+            onSubmitChange={onSubmitChange(getUser.id)}
           />
           <FaceRecognition box={box} imageUrl={image} />
         </div>

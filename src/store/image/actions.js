@@ -29,12 +29,13 @@ export function fetchImages(images) {
     payload: images,
   };
 }
-export const addImage = (image) => {
+export const addImage = (image, id) => {
   return async (dispatch, getState) => {
     dispatch(appLoading());
     try {
       const response = await axios.post(`${apiUrl}/image`, {
         image,
+        id,
       });
       dispatch(appDoneLoading());
       dispatch(showMessageWithTimeout("success", true, response.data, 3000));

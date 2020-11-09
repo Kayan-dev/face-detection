@@ -29,7 +29,7 @@ export default function LogIn() {
   }
   return (
     <Container>
-      <article className="sign br3 ba b--black-10 mv4 w-100 w-60-m w-40-l mw6 shadow-5 center">
+      <article className="sign br3 b--black-10 mv4 w-100 w-60-m w-40-l mw6 shadow-5 center">
         <main className="pa4 black-80">
           <form className="measure center">
             <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
