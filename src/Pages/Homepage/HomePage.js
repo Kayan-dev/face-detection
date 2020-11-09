@@ -69,7 +69,7 @@ export default function HomePage() {
       .predict(Clarifai.FACE_DETECT_MODEL, input)
       .then(
         (response) => displayBox(calcFaceLocation(response)),
-        dispatch(addImage(input, id))
+        dispatch(addImage(input))
       );
     Set_Input("");
   };
