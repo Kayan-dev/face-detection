@@ -13,7 +13,7 @@ import Navigation from "./components/Navigation";
 import { ParticleOptions } from "./components/Particles/Particle";
 // import { getUserWithStoredToken } from "./store/user/actions";
 // import profile from "./Pages/Profile/profile";
-// import about from "./Pages/About/About";
+import About from "./Pages/About/About";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,8 +32,9 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/list" component={Listing} />
+
+        <Route path="/about" component={About} />
         {/* 
-        <Route path="/about" component={about} />
         <Route path="/profile" component={profile} />
          */}
         <Route path="/signup" component={SignIn} />
