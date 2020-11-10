@@ -10,6 +10,7 @@ const StackList = ({ stack }) => {
         id={stack[i].id}
         title={stack[i].title}
         text={stack[i].text}
+        link={stack[i].link}
       />
     );
   });
