@@ -14,22 +14,20 @@ export default function Ranks() {
 
   useEffect(() => {
     dispatch(getAllImages);
-    console.log("dispatched");
   }, [dispatch]);
 
   //Buffer render time
   if (!image) return <div>{Loading}</div>;
-  console.log("image:", image);
-
   //Filter specific images for each user using ID
   const filtered_Image = [...image].filter(function (user) {
-    return get_User.id === user.id;
+    return get_User.id === user.userId;
   });
+
   const entry = filtered_Image.length;
 
   return (
     <div>
-      <h3>{`${get_User.name}, so far you have entried ${entry} images in the database`}</h3>
+      <h3>{`${get_User.name}, so far you have entered ${entry} image(s) in the database`}</h3>
       <br></br>
       <div>
         <Container>
