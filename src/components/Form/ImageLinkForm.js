@@ -6,7 +6,7 @@ export default function ImageLinkForm({ onSubmitChange, onInputChange }) {
     <div>
       <p className="f3">
         {
-          "This AI brain will detect faces in images. Give it an image to work from"
+          "This AI brain will detect faces in images. Give it an image link to work from"
         }
       </p>
       <div className="center">

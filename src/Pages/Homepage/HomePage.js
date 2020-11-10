@@ -65,11 +65,13 @@ export default function HomePage() {
 
   const onSubmitChange = (id) => {
     Set_Image(input);
+    console.log("First ID:", id);
     app.models
       .predict(Clarifai.FACE_DETECT_MODEL, input)
       .then(
         (response) => displayBox(calcFaceLocation(response)),
-        dispatch(addImage(input))
+        console.log("second ID", id),
+        dispatch(addImage(input, id))
       );
     Set_Input("");
   };
