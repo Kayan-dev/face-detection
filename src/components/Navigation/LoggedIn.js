@@ -10,9 +10,9 @@ export default function LoggedIn() {
   return (
     <>
       <NavbarItem path="/" linkText="Detector" />
-      <NavbarItem path="/list" linkText="Images" />
+      <NavbarItem path="/list" linkText="My Images" />
       <NavbarItem path="/about" linkText="About" />
-      <NavbarItem path="/profile" linkText="Profile" />
+      {/* <NavbarItem path="/profile" linkText="Profile" /> */}
       <Link to="/">
         <Button variant="outline-primary" onClick={() => dispatch(logOut())}>
           Logout
