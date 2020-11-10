@@ -1,9 +1,16 @@
 import React from "react";
-import Card from "../../components/Cards/Card";
 import CardList from "../../components/Cards/CardList";
+import StackList from "../../components/Cards/StackList";
 import Loading from "../../components/Loading";
-import { info } from "./info";
+import { info, stack } from "./info";
 
 export default function About() {
-  return !info.length ? <Loading /> : <CardList info={info}></CardList>;
+  return !info.length || !stack.length ? (
+    <Loading />
+  ) : (
+    <div>
+      <CardList info={info}></CardList>
+      <StackList stack={stack}></StackList>
+    </div>
+  );
 }

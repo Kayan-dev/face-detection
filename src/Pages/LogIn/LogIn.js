@@ -39,7 +39,7 @@ export default function LogIn() {
                   Email
                 </label>
                 <input
-                  className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                  className="pa2 input-reset b--navy bg-transparent hover-bg-black hover-white w-100"
                   type="email"
                   name="email-address"
                   onChange={(event) => setEmail(event.target.value)}
@@ -52,7 +52,7 @@ export default function LogIn() {
                   Password
                 </label>
                 <input
-                  className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                  className="b pa2 input-reset b--navy bg-transparent hover-bg-black hover-white w-100"
                   type="password"
                   name="password"
                   onChange={(event) => setPassword(event.target.value)}
@@ -60,20 +60,20 @@ export default function LogIn() {
                   id="password"
                 />
               </div>
+              <div className="">
+                <input
+                  onClick={submitForm}
+                  className="b ph3 pv2 input-reset b--navy b--black bg-transparent grow pointer f6 dib"
+                  type="submit"
+                  value="login"
+                />
+              </div>
+              <div className="lh-copy mt3">
+                <Link to="/signup" style={{ textAlign: "center" }}>
+                  Sign up
+                </Link>
+              </div>
             </fieldset>
-            <div className="">
-              <input
-                onClick={submitForm}
-                className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
-                type="submit"
-                value="login"
-              />
-            </div>
-            <div className="lh-copy mt3">
-              <Link to="/signup" style={{ textAlign: "center" }}>
-                Sign up
-              </Link>
-            </div>
           </form>
         </main>
       </article>

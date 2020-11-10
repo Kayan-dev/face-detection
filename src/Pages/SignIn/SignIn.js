@@ -30,7 +30,7 @@ export default function SignIn() {
   }
 
   return (
-    <article className="br3 ba b--black-10 mv4 w-100 w-60-m w-40-l mw6 shadow-5 center">
+    <article className="br3 bg-white-10 mv4 w-100 w-60-m w-40-l mw6 shadow-5 center">
       <main className="pa4 black-80">
         <form className="measure center">
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
@@ -40,7 +40,7 @@ export default function SignIn() {
                 Name
               </label>
               <input
-                className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                className="pa2 input-reset b--navy bg-transparent hover-bg-black hover-white w-100"
                 type="name"
                 name="name"
                 id="name"
@@ -54,7 +54,7 @@ export default function SignIn() {
                 Email
               </label>
               <input
-                className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                className="pa2 input-reset b--navy bg-transparent hover-bg-black hover-white w-100"
                 type="email"
                 name="email-address"
                 id="email-address"
@@ -68,7 +68,7 @@ export default function SignIn() {
                 Password
               </label>
               <input
-                className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                className="b pa2 input-reset b--navy bg-transparent hover-bg-black hover-white w-100"
                 type="password"
                 name="password"
                 id="password"
@@ -77,15 +77,15 @@ export default function SignIn() {
                 required
               />
             </div>
+            <div className="">
+              <input
+                onClick={submitForm}
+                className="b ph3 pv2 input-reset b--navy bg-transparent grow pointer f6 dib"
+                type="submit"
+                value="Sign up"
+              />
+            </div>
           </fieldset>
-          <div className="">
-            <input
-              onClick={submitForm}
-              className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
-              type="submit"
-              value="Sign up"
-            />
-          </div>
         </form>
       </main>
     </article>

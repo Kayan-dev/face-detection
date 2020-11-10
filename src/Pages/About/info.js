@@ -5,7 +5,7 @@ export const info = [
     logo: "",
     text:
       "The AI from clarifai has been used to detect faces. Click to visit their page",
-    link: "CLick here to visit the page",
+    link: "https://www.clarifai.com/models/face-detection",
   },
   {
     id: 2,
@@ -22,16 +22,18 @@ export const info = [
     text:
       "The idea of this face detection app is derived from ZTM. Click to visit their repository",
   },
+];
+
+export const stack = [
   {
     id: 4,
     title: "Frontend stack",
-    logo: "",
-    text: "JS ES6+ | React | React bootstrap | Redux | React particles | Axios",
+    text:
+      "JS ES6+, HTML5 & CSS3 | React | React bootstrap | Redux | React particles | Axios",
   },
   {
     id: 5,
     title: "Backend stack",
-    logo: "",
     text:
       "Node.js | Express | Cors | Sequelize | PostgreSql | ElephantSql | REST API",
   },
