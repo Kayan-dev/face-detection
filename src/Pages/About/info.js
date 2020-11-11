@@ -29,7 +29,7 @@ export const stack = [
     id: 4,
     title: "Frontend stack",
     text:
-      "JS ES6+, HTML5 & CSS3 | React | React bootstrap | Redux | React particles | Axios",
+      "JS ES6+, HTML5 & CSS3 | Tachyons & Bootstrap | ReactJS | Redux | Axios",
     link: "https://github.com/Kayan-dev/face-detection",
   },
   {

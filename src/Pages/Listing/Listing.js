@@ -22,16 +22,20 @@ export default function Ranks() {
   const filtered_Image = [...image].filter(function (user) {
     return get_User.id === user.userId;
   });
-
+  //Total length of posted images per user
   const entry = filtered_Image.length;
+  //Filter out imageUrls in database that are empty strings
+  const nonEmpty_Images = [...filtered_Image].filter(function (url) {
+    return url.ImageUrl !== "";
+  });
 
   return (
     <div>
-      <h3>{`${get_User.name}, so far you have entered ${entry} image(s) in the database`}</h3>
+      <h3>{`${get_User.name}, you have entered ${entry} image(s) in the database so far`}</h3>
       <br></br>
       <div>
         <Container>
-          <ImageCarousel image={filtered_Image} />
+          <ImageCarousel image={nonEmpty_Images} />
         </Container>
       </div>
     </div>

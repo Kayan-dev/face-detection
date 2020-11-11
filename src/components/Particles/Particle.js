@@ -5,7 +5,7 @@ export const ParticleOptions = {
   fps_limit: 28,
   particles: {
     number: {
-      value: 85,
+      value: 105,
       density: {
         enable: true,
         value_area: 800,
@@ -15,7 +15,7 @@ export const ParticleOptions = {
   interactivity: {
     detect_on: "canvas",
     events: {
-      onhover: { enable: true, mode: "grab" },
+      onhover: { enable: true, mode: "bubble" },
       onclick: { enable: true, mode: "repulse" },
       resize: true,
     },
@@ -27,8 +27,8 @@ export const ParticleOptions = {
         },
       },
       bubble: {
-        distance: 400,
-        size: 40,
+        distance: 300,
+        size: 10,
         duration: 2,
         opacity: 8,
         speed: 3,

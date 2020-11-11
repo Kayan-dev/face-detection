@@ -6,7 +6,7 @@ export default function ImageLinkForm({ onSubmitChange, onInputChange }) {
     <div>
       <p className="f3">
         {
-          "This AI brain will detect faces in images. Give it an image link to work from"
+          "This AI brain will detect faces in images. Post any image address from the internet for detection"
         }
       </p>
       <div className="center">
@@ -19,7 +19,7 @@ export default function ImageLinkForm({ onSubmitChange, onInputChange }) {
 
           <button
             onClick={onSubmitChange}
-            className="input-text w-30 grow f4 link ph3 pv2 dib white bg-dark-blue"
+            className="input-text w-30 grow f4 link ph3 pv2 dib white bg-moon-gray"
           >
             Detect
           </button>
