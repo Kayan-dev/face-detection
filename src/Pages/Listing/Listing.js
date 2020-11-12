@@ -22,12 +22,13 @@ export default function Ranks() {
   const filtered_Image = [...image].filter(function (user) {
     return get_User.id === user.userId;
   });
-  //Total length of posted images per user
-  const entry = filtered_Image.length;
+
   //Filter out imageUrls in database that are empty strings
   const nonEmpty_Images = [...filtered_Image].filter(function (url) {
     return url.ImageUrl !== "";
   });
+  //Total length of posted images per user
+  const entry = nonEmpty_Images.length;
 
   return (
     <div>

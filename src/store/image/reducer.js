@@ -2,6 +2,7 @@ import {
   ADDING_IMAGE,
   FETCHED_IMAGES,
   LOADING_PAGES,
+  STORY_DELETE_SUCCES,
 } from "../appState/actions";
 
 const initialState = {
@@ -31,6 +32,18 @@ export default function Images(state = initialState, action) {
         image: action.payload,
       };
     }
+    case STORY_DELETE_SUCCES:
+      const imageId = action.payload;
+      const updateImages = state.image.allImages.filter(
+        (image) => image.id !== imageId
+      );
+      return {
+        ...state,
+        image: {
+          ...state.image,
+          allImages: updateImages,
+        },
+      };
     default:
       return state;
   }

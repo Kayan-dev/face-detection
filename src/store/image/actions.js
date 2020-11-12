@@ -8,7 +8,9 @@ import {
   LOADING_PAGES,
   showMessageWithTimeout,
   FETCHED_IMAGES,
+  STORY_DELETE_SUCCES,
 } from "../appState/actions";
+import { selectUser } from "../user/selectors";
 
 export function startLoading() {
   return {
@@ -29,6 +31,12 @@ export function fetchImages(images) {
     payload: images,
   };
 }
+
+export const storyDeleteSuccess = (storyId) => ({
+  type: STORY_DELETE_SUCCES,
+  payload: storyId,
+});
+
 export const addImage = (image, id) => {
   return async (dispatch, getState) => {
     dispatch(appLoading());
@@ -88,3 +96,24 @@ export async function allUsers(dispatch, getState) {
     }
   }
 }
+
+export const deleteStory = (imageId) => {
+  return async (dispatch, getState) => {
+    dispatch(appLoading());
+    const { token } = selectUser(getState());
+    // make an axios request to delete
+    try {
+      // TODO Do I need to use response?
+      const response = await axios.delete(`${apiUrl}/image/${imageId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      // and console.log the response if success
+      dispatch(storyDeleteSuccess(imageId));
+      dispatch(appDoneLoading());
+    } catch (e) {
+      console.error(e);
+    }
+  };
+};
