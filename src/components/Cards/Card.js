@@ -2,7 +2,7 @@ import React from "react";
 
 const Card = ({ id, title, text, logo, link }) => {
   return (
-    <a href={link}>
+    <a href={link} target="_blank" rel="noopener noreferrer">
       <div className="bg-black-40  mw6 dib br3 pa3 ma2 grow bw2 shadow-5">
         <div>
           <h2>{title}</h2>
