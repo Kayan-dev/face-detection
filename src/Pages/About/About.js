@@ -4,7 +4,11 @@ import StackList from "../../components/Cards/StackList";
 import Loading from "../../components/Loading";
 import { info, stack } from "./info";
 
-export default function About() {
+import history from "../../history";
+
+export default function About(props) {
+  history.push("/about");
+
   return !info.length || !stack.length ? (
     <Loading />
   ) : (
