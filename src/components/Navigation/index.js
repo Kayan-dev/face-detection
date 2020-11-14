@@ -17,7 +17,7 @@ export default function Navigation() {
       <Logo></Logo>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="ma-2" style={{ width: "100%" }} fill>
+        <Nav className="ma-2 f4" style={{ width: "100%" }} fill>
           {loginLogoutControls}
         </Nav>
       </Navbar.Collapse>
