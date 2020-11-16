@@ -11,9 +11,8 @@ import SignIn from "./Pages/SignIn/SignIn";
 import LogIn from "./Pages/LogIn/LogIn";
 import Navigation from "./components/Navigation";
 import { ParticleOptions } from "./components/Particles/Particle";
-// import { getUserWithStoredToken } from "./store/user/actions";
-// import profile from "./Pages/Profile/profile";
 import About from "./Pages/About/About";
+// import { getUserWithStoredToken } from "./store/user/actions";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,11 +31,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/list" component={Listing} />
-
         <Route path="/about" component={About} />
-        {/* 
-        <Route path="/profile" component={profile} />
-         */}
         <Route path="/signup" component={SignIn} />
         <Route path="/login" component={LogIn} />
       </Switch>
