@@ -14,7 +14,7 @@ The about page contains the tools or resources that I used to build this applica
 Use the link: https://evening-hamlet-82472.herokuapp.com/
 To visit the website that is deployed for free with Heroku.
 
-`It may take up to 10 seconds for the web app to 'wake up' since it is a free deployment.`
+**It may take up to 10 seconds for the web app to 'wake up' since it is a free deployment**
 
 ## Available Scripts
 
