@@ -2,7 +2,7 @@
 
 This is the frontend of my fullstack web application that uses the machine learning model of Clarifai to detect faces.
 This app makes use of Clarifai API. 
-It is build with React as the View and Redux as the global state management.
+It is build with React as the View and Redux as the global storage of the state.
 
 Regular CSS3 but also bootstrap and tachyons has been used for the UI design.
 The background is created with the particles.js and is reactive with the mouse so go ahead and try clicking on it to see what happens :)
