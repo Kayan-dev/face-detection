@@ -1,4 +1,15 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
+
+This is the frontend of my fullstack web application that uses the machine learning model of Clarifai to detect faces.
+This app makes use of Clarifai API. 
+It is build with React as the View and Redux as the global state management.
+
+Regular CSS3 but also bootstrap and tachyons has been used for the UI design.
+The background is created with the particles.js and is reactive with the mouse so go ahead and try clicking on it to see what happens :)
+
+The app fetches or dispatches the data to the backend which they updated or retrieves it from the database whenever you create a new account, login, add a new image to detect the face or simply wish to see all your previous images.
+
+The about page contains the tools or resources that I used to build this application. 
 
 ## Available Scripts
 
