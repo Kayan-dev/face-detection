@@ -11,6 +11,11 @@ The app fetches or dispatches the data to the backend which they updated or retr
 
 The about page contains the tools or resources that I used to build this application. 
 
+Use the link: https://evening-hamlet-82472.herokuapp.com/
+To visit the website that is deployed for free with Heroku.
+
+`It may take up to 10 seconds for the web app to 'wake up' since it is a free deployment.`
+
 ## Available Scripts
 
 In the project directory, you can run:
